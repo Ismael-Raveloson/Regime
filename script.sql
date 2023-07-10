@@ -191,3 +191,9 @@ INSERT INTO CODE(nomCode,montant,validite)VALUES('456076KE08',100,0);
 INSERT INTO CODE(nomCode,montant,validite)VALUES('260LOPR785',300,0);
 
 INSERT INTO CODE_UTILISATEUR(idCode,idUtilisateur) VALUES (1,2);
+ALTER TABLE REGIME ADD COLUMN nomRegime VARCHAR(40);
+UPDATE REGIME SET nomRegime= 'Regime minceur' WHERE idRegime=1;
+UPDATE REGIME SET nomRegime= 'Regime mediteraneen' WHERE idRegime=2;
+UPDATE REGIME SET nomRegime= 'Regime sans gluten' WHERE idRegime=3;
+UPDATE REGIME SET nomRegime= 'Regime cetogene' WHERE idRegime=4;
+UPDATE REGIME SET nomRegime= 'Regime vegetarien' WHERE idRegime=5;
