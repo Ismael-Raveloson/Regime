@@ -81,11 +81,11 @@ CREATE TABLE CODE_UTILISATEUR(
     FOREIGN KEY (idUtilisateur) REFERENCES UTILISATEUR(idUtilisateur)
 );
 
-INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Andria','Tsiory','28-11-1989','Tsiory@gmail.com','123',0);
-INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Rabe','Mika','15-03-2001','Mika@gmail.com','6363',0);
-INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Razafy','Irinah','14-04-2000','irinah@gmail.com','000',0);
-INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Ravelo','Fitahiana','19-12-1998','Fita@gmail.com','1219',1);
-INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Randria','Soa','01-01-2003','Soa@gmail.com','789',0);
+INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Andria','Tsiory','1989-11-28','Tsiory@gmail.com','123',0);
+INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Rabe','Mika','2001-03-15','Mika@gmail.com','6363',0);
+INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Razafy','Irinah','2000-04-14','irinah@gmail.com','000',0);
+INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Ravelo','Fitahiana','1998-12-19','Fita@gmail.com','1219',1);
+INSERT INTO UTILISATEUR(nom,prenom,dtn,email,mdp,estAdmin) VALUES ('Randria','Soa','2003-01-01','Soa@gmail.com','789',0);
 
 INSERT INTO OBJECTIF(nomObjectif) VALUES ('Perdre du poids');
 INSERT INTO OBJECTIF(nomObjectif) VALUES ('Prise de masse');
@@ -159,7 +159,14 @@ INSERT INTO COMPOSITION_REGIME(idRegime,idPlat) VALUES (5,12);
 INSERT INTO COMPOSITION_REGIME(idRegime,idPlat) VALUES (5,15);
 
 
-INSERT INTO PANIER(idRegime,dateVente) VALUES();
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(1,1,'2023-06-10');
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(5,2,'2023-06-24');
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(2,3,'2023-02-10');
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(3,4,'2023-07-09');
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(2,5,'2023-07-01');
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(1,2,'2023-07-10');
+INSERT INTO PANIER(idUtilisateur,idRegime,dateVente) VALUES(5,1,'2023-07-01');
+
 
 INSERT INTO SPORT(idObjectif,nomSport)VALUES(1,'Natation');
 INSERT INTO SPORT(idObjectif,nomSport)VALUES(2,'Musculation');
