@@ -29,7 +29,61 @@
             
             return $query_result;
 
-        }
+        }  
         
+        
+        public function check_code($nomCode)
+        {
+            $sql = "SELECT * FROM CODE WHERE NOMCODE = %s ";
+
+            $sprintf = sprintf($sql , $this->db->escape($nomCode));
+
+            $query = $this->db->query($sprintf);
+
+            $num = $query->num_rows();
+            $answer = false;
+
+            if ($num >=1) 
+            {
+                $answer = true;
+            }
+            
+            return $answer;
+        }
+
+
+        public function insert_code_user($code,$idUtilisateur) 
+        {
+            if ($this->check_code($code) == true) 
+            {
+                $sql = "INSERT INTO CODE_UTILISATEUR VALUES(%d,%d)";
+
+                $sprintf = sprintf($sql,$code,$idUtilisateur);
+                
+                $this->db->query($sprintf);    
+            }
+            
+        }
+
+        public function search_code($nomCode)
+        {
+            $sql = "SELECT IDCODE FROM CODE WHERE NOMCODE = %s";
+            $sprintf = sprintf($sql, $this->db->escape($nomCode));
+
+            $query = $this->db->query($sprintf);
+            $query_result = $query->row();
+            
+            if ($query_result) 
+            {
+                return intval($query_result->IDCODE); // Retourne uniquement la valeur de la colonne IDCODE
+            } 
+            else 
+            {
+                return null; // Ou une autre valeur par défaut si aucun résultat n'est trouvé
+            }
+        }
+
+        
+
     }
 ?>
