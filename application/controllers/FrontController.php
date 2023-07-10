@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             {
                 $this->session->set_userdata('idclient',$login);
                 
-                $this->load->view('page/front/home');
+                redirect('FrontController/home');
             }
         }
 
@@ -81,12 +81,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         }
 
-        public function home(){
+        public function home()
+        {
             $this->load->model('FrontOfficeModel');
             $data['regime'] = $this->FrontOfficeModel->getRegime();
             $this->load->view('page/front/home',$data);
         }
+
+        public function portfeuille()
+        {
+            $this->load->view('page/front/portfeuille');
+        }
         
+        public function listcode()
+        {
+            $data = array();
+            $this->load->model('FrontOfficeModel');
+            $data['code'] = $this->FrontOfficeModel->select_code();
+            $this->load->view('page/front/listcode',$data);
+        }
+
+        public function listcode_treat()
+        {
+            $code = $this->input->post("code");
+            $id = $this->session->userdata('idclient');
+            $i = $id['idUtilisateur'];
+            $this->load->model('FrontOfficeModel');
+
+            $selectcode = $this->FrontOfficeModel->check_code($code);
+
+            $idcode = $selectcode['idCode'];
+            
+            if (is_null($selectcode)) 
+            {
+                redirect('FrontController/portfeuille');
+            } else 
+            {
+                $this->FrontOfficeModel->insert_code_user($idcode,$i);
+                redirect('FrontController/home');
+            }
+        }
+
+        public function log_out()
+        {
+            $this->session->sess_destroy();
+
+            redirect('FrontController/index');
+        }
+
+        public function panier()
+        {
+            $this->load->view('page/front/panier');
+        }
     }
 
 ?>
