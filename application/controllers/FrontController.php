@@ -28,21 +28,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             } 
             else 
             {
-                var_dump($name);
-                var_dump($first_name);
-                var_dump($email);
-                var_dump($password);
-                var_dump($confirm_password);
-                var_dump($birthday);
+                
                 $this->load->model('FrontOfficeModel');
                 $this->FrontOfficeModel->insert_user($name,$first_name,$birthday,$email,$password);
-                redirect('FrontController/inscription');  
+                redirect('FrontController/index');  
             }    
         }
 
 
         public function sign_up_treat() 
         {
+            $this->load->library('session');
+
+
+
             $email = $this->input->post("email");
             $password = $this->input->post("password");
 
@@ -57,6 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             else 
             {
+                $this->session->set_userdata('idclient',$login);
+                
                 $this->load->view('page/front/home');
             }
         }
@@ -85,6 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['regime'] = $this->FrontOfficeModel->getRegime();
             $this->load->view('page/front/home',$data);
         }
+        
     }
 
 ?>

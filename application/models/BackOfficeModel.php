@@ -7,7 +7,20 @@
         }
 
 
-        
+        public function select_objectif()
+        {
+            $sql = "SELECT * FROM OBJECTIF";
+
+            $query = $this->db->query($sql);
+            $query_result = $query->result_array();
+
+            return $query_result;
+        }
+
+        // public insert_plat()
+        // {
+
+        // }
         
     }
 ?>
