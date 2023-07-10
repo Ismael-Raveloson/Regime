@@ -81,7 +81,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function home(){
-            $this->load->view('page/front/home');
+            $this->load->model('FrontOfficeModel');
+            $data['regime'] = $this->FrontOfficeModel->getRegime();
+            $this->load->view('page/front/home',$data);
         }
     }
 

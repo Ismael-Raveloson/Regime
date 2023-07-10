@@ -44,5 +44,16 @@
             $this->db->query($req);
         }
         
+        function getRegime(){
+            $sql = "SELECT * FROM REGIME r JOIN OBJECTIF o ON o.idObjectif = r.idObjectif ORDER BY r.idObjectif ASC";
+            $query=$this->db->query($sql);
+            $data= array();
+            foreach($query->result_array() as $row){
+                $data[]=$row;
+            }
+            return $data;
+        }
+
+        
     }
 ?>
