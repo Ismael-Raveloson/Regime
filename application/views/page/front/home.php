@@ -66,6 +66,7 @@
                                     </ul>
                                 </li> -->
                                 <!-- <li><a class="scrollTo" data-scrollTo="blog" href="#">Profil</a></li> -->
+                                <li><a class="scrollTo" data-scrollTo="services" href="#">Portefeuille</a></li>
                                 <li><a class="scrollTo" data-scrollTo="services" href="#">Panier</a></li>
                                 <li><a class="scrollTo" data-scrollTo="contact" href="#">Log out</a></li>
                             </ul>
@@ -333,7 +334,7 @@
                 <div class="col-md-12">
                     <div class="section-heading">
                         <span>Nos régimes</span>
-                        <h2>Praesent nec dui sed urna</h2>
+                        <h2>Suivez nos meilleurs régimes</h2>
                     </div>
                 </div> 
             </div> 
