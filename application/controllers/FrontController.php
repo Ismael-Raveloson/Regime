@@ -79,6 +79,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->FrontOfficeModel->insertProfil($idUtilisateur,$objectif,$genre,$taille,$poids);
 
         }
+
+        public function home(){
+            $this->load->view('page/front/home');
+        }
     }
 
 ?>
