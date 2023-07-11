@@ -40,6 +40,7 @@
                     </select></p>
 
                     <button class="changer" type="submit">Valider le profil</button>
+                    <a href="<?php echo base_url('FrontController/home'); ?>">J'ai déja un profil</a>
                 </form>
             </div>
         </div>

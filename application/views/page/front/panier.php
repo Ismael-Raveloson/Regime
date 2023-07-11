@@ -39,8 +39,9 @@
 						  <tbody>
 								
 									<?php
-									foreach ($panier as $nom) 
-									{?>
+									if($panier != null){
+										foreach ($panier as $nom){
+									?>	
 										<tr>
 											<td><?php echo $nom['nomRegime']; ?></td>
 											<td><?php echo $nom['duree']; ?> j</td>
@@ -49,6 +50,7 @@
 
 											<td> <button class="detail"><a href="<?php echo base_url()?>FrontController/listplat?idRegime=<?php echo $nom['idRegime']; ?>" style="text-decoration:none; color:white;">Voir détails</a></button></td>
 										</tr>
+									<?php } ?>
 									<?php } ?>
 																	
                             

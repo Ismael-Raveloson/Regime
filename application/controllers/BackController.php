@@ -24,9 +24,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function code(){
             $data = array();
-            $this->load->model('FrontOfficeModel');
-            $data['code'] = $this->FrontOfficeModel->select_code();
+            $this->load->model('BackOfficeModel');
+            $data['code'] = $this->BackOfficeModel->select_code();
             $this->load->view('page/back/code.php',$data);
+        }
+
+        public function insertSport(){
+            $this->load->model('BackOfficeModel');
+            $nom = $this->input->get("nom");
+            $objectif = $this->input->get("objectif");
+            $this->BackOfficeModel->insert_sport($nom,$objectif);
+            redirect('BackController/insert');
         }
 
         public function regime_treat()
@@ -81,7 +89,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect('BackController/insert');
             }
         }
+
+        public function deleteCode(){
+            $this->load->model('BackOfficeModel');
+            $idCode = $this->input->get('idCode');
+            $this->BackOfficeModel->deleteCode($idCode);
+            redirect('BackController/code');
+        }
         
+        public function validerCode(){
+            $this->load->model('BackOfficeModel');
+            $idCode = $this->input->get('idCode');
+            $this->BackOfficeModel->validerCode($idCode);
+            redirect('BackController/code');
+        }
         
 
 

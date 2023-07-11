@@ -186,7 +186,7 @@
                         </div>
                             <div class="card-body" style="">
                                 <div class="formulaire-plat" style="">
-                                    <form action="" method="get">
+                                    <form action="<?php echo base_url()?>BackController/insertSport" method="get">
                                         <style>
                                             input[type="file"]::-webkit-file-upload-button {
                                             /* CSS properties */
@@ -199,14 +199,12 @@
                                             }
                                         </style>
 
-
-                                            <p><input type="file" name="photo" id="" style="border:1px solid grey;padding:0px 10px 0px 0px;border-radius:8px;" ></p>
                                             <p>Nom: <input type="text" name="nom" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p> 
                                             <p>Objectif: <select name="objectif" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;">
                                                 <?php
                                                     foreach ($objectif as $list_objectif) {?>
                                                         
-                                                        <option value=""><?php echo $list_objectif['nomObjectif'];?></option>
+                                                        <option value="<?php echo $list_objectif['idObjectif'];?>"><?php echo $list_objectif['nomObjectif'];?></option>
                                                         
                                                         
                                                     <?php } ?>
@@ -220,13 +218,7 @@
                             </div>
                         </div>
                     </div>
-                    
-
-
-
-
-
-
+                
                 </div>
 
             </div>

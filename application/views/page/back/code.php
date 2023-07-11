@@ -109,7 +109,8 @@
                                                     <th>Code</th>
                                                     <th>Montant</th>
                                                     <th>Prenom</th>
-                                                    <th>Action</th>
+                                                    <th></th>
+                                                    <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -117,10 +118,11 @@
                                                     {?>
                                                         <tr>
 
-                                                            <td><?php echo $code_list['nomcode'];?></td> 
+                                                            <td><?php echo $code_list['nomCode'];?></td> 
                                                             <td><?php echo $code_list['montant'];?></td> 
                                                             <td><?php echo $code_list['prenom'];?></td> 
-                                                            <td><button class="detail"><a href="#" style="text-decoration:none;color:white;">Supprimer</a></button></td>                                                                
+                                                            <td><button class="detail"><a href="<?php echo base_url()?>BackController/deleteCode?idCode=<?php echo $code_list['idCodeUtilisateur'];?>" style="text-decoration:none;color:white;">Supprimer</a></button></td>
+                                                            <td><button class="detail"><a href="<?php echo base_url()?>BackController/validerCode?idCode=<?php echo $code_list['idCodeUtilisateur'];?>" style="text-decoration:none;color:white;">Accepter</a></button></td>                                                                
                                                         </tr>    
                                                     <?php } ?>
                                                     <style>

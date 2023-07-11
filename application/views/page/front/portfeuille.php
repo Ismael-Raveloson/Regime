@@ -19,8 +19,11 @@
 	
 	<div class="vola">
 		<h5>Votre portefeuille est de:
+		
 		<?php
+		if($vola != null){
 			echo number_format($vola,0,',',' ') ;
+		}
 		 ?> Ar</h5>
 	</div>
 

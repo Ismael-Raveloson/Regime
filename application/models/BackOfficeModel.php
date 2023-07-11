@@ -28,18 +28,18 @@
         }
 
         public function getMontantCode($idCode){
-            $sql = "SELECT montant FROM code_utilisateur cu JOIN code c ON c.idCode = cu.idCode WHERE cu.idCodeUtilisateur = %d";
+            $sql = "SELECT c.montant FROM code_utilisateur cu JOIN code c ON c.idCode = cu.idCode WHERE cu.idCodeUtilisateur = %d";
             $req = sprintf($sql,$idCode);
-            $query = $this->db->query($sprintf);
-            $query_result = $query->row();
+            $query = $this->db->query($req);
+            $query_result = $query->row('montant');
             return $query_result;
         }
 
         public function getCode($idCodeUtil){
-            $sql = "SELECT idCode FROM code_utilisateur cu JOIN code c ON c.idCode = cu.idCode WHERE cu.idCodeUtilisateur = %d";
+            $sql = "SELECT c.idCode FROM code_utilisateur cu JOIN code c ON c.idCode = cu.idCode WHERE cu.idCodeUtilisateur = %d";
             $req = sprintf($sql,$idCodeUtil);
-            $query = $this->db->query($sprintf);
-            $query_result = $query->row();
+            $query = $this->db->query($req);
+            $query_result = $query->row('idCode');
             return $query_result;
         }
 
@@ -66,12 +66,16 @@
 
         public function select_code()
         {
-            $sql = "SELECT code.nomcode,code.montant,utilisateur.prenom FROM code_utilisateur join code on code.idcode = code_utilisateur.idcode join utilisateur on utilisateur.idUtilisateur = code_utilisateur.idUtilisateur";
-
+            $sql = "SELECT code.nomCode,code_utilisateur.idCodeUtilisateur,code.montant,utilisateur.prenom  FROM code_utilisateur join code on code.idcode = code_utilisateur.idcode join utilisateur on utilisateur.idUtilisateur = code_utilisateur.idUtilisateur";
             $query = $this->db->query($sql);
             $query_result = $query->result_array();
-
             return $query_result;
+        }
+
+        public function insert_sport($nom,$objectif){
+            $sql = "INSERT INTO sport(idObjectif,nomSport) VALUES (%d,%s)";
+            $req = sprintf($sql,$objectif,$this->db->escape($nom));
+            $this->db->query($req);
         }
 
         public function insert_plat($idObjectif,$nomPlat,$photoPlat,$prix)

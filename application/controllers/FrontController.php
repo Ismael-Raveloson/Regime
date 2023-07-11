@@ -32,10 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             {    
                 $this->load->model('FrontOfficeModel');
                 $this->FrontOfficeModel->insert_user($name,$first_name,$birthday,$email,$password);
-                $login = $this->FrontOfficeModel->cheak_user($email,$password);
-                $this->session->set_userdata('idclient',$login);
-
-                redirect('FrontController/profil');  
+                redirect('FrontController/index');  
             }    
         }
 
@@ -68,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 else 
                 {
-                    redirect('FrontController/home');
+                    redirect('FrontController/profil');
                 }
                 
             }
@@ -90,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $idUtilisateur=2;
             $this->FrontOfficeModel->insertProfil($idUtilisateur,$objectif,$genre,$taille,$poids);
-
+            redirect('FrontController/home');
         }
 
         public function home()
