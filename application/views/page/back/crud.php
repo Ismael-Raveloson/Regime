@@ -100,33 +100,29 @@
                                             <p>Nom: <input type="text" name="nom" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
                                             <p>Durée: <input type="number" name="duree" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
                                             <p>Variation: <input type="number" name="variation" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
-                                            <p>Objectif: <select name="objectif" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;">
-                                                <option value="">Perdre du poids</option>
-                                                <option value="">...</option>
-                                            </select></p>    
+                                            <p>Objectif: </p>
+                                            <select name="objectif" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;">
+                                                <?php
+                                                    foreach ($objectif as $list_objectif) {?>
+                                                        
+                                                        <option value=""><?php echo $list_objectif['nomObjectif'];?></option>
+                                                        
+                                                        
+                                                    <?php } ?>
+                                            </select>
                                         </div>
                                         
                                         
                                         <div class="plat" style="float:right;display:grid;grid-template-columns: 33% 33% 33%;">
-                                            
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat1 </span>
+                                        
+                                        <?php
+                                            foreach ($plat as  $list_plat) 
+                                            {?>
+
+                                                    <span> <input type="checkbox" name="plat" id="" value="p1">  <?php echo $list_plat['nomPlat'];?> </span>
                                                 
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
-                                                <span> <input type="checkbox" name="plat" id="" value="p1">  Plat2 </span>
-                                                
+                                            <?php } ?>
+
                                         </div>
 
                                         <button type="submit" style="width:10vw;margin-top:10px;padding:8px 0px 8px 0px;background-color:#224abe;border:none;color:white;border-radius:6px ">Valider</button>

@@ -7,6 +7,16 @@
         }
 
 
+        public function select_plat()
+        {
+            $sql = "SELECT * FROM PLAT";
+
+            $query = $this->db->query($sql);
+            $query_result = $query->result_array();
+
+            return $query_result;
+        }
+
         public function select_objectif()
         {
             $sql = "SELECT * FROM OBJECTIF";
