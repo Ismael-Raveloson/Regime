@@ -9,7 +9,7 @@
 
         public function insert_user($nom,$prenom,$dtn,$email,$mdp) 
         {
-            $sql = "INSERT INTO UTILISATEUR VALUES(NULL,%s,%s,%s,%s,%s,0)";
+            $sql = "INSERT INTO utilisateur VALUES(NULL,%s,%s,%s,%s,%s,0)";
 
             $sprintf = sprintf($sql, $this->db->escape($nom), $this->db->escape($prenom), $this->db->escape($dtn), $this->db->escape($email), $this->db->escape($mdp));
 
@@ -19,7 +19,7 @@
 
         public function cheak_user($email,$password)
         {
-            $sql = "SELECT * FROM UTILISATEUR WHERE EMAIL = %s AND MDP = %s";
+            $sql = "SELECT * FROM utilisateur WHERE EMAIL = %s AND MDP = %s";
 
             $sprintf = sprintf($sql, $this->db->escape($email), $this->db->escape($password));
             $query = $this->db->query($sprintf);
@@ -29,7 +29,7 @@
         }
         
         function getObjectif(){
-            $sql= "SELECT * FROM OBJECTIF";
+            $sql= "SELECT * FROM objectif";
             $query= $this->db->query($sql);
             $data= array();
             foreach($query->result_array() as $row){
@@ -50,13 +50,13 @@
         }
 
         function insertProfil($utilisateur,$objectif,$genre,$taille,$poids){
-            $sql="INSERT INTO PROFIL(idUtilisateur,idObjectif,genre,taille,poids,montantPortefeuille) VALUES (%d,%d,%s,%d,%d,0)";
+            $sql="INSERT INTO profil(idUtilisateur,idObjectif,genre,taille,poids,montantPortefeuille) VALUES (%d,%d,%s,%d,%d,0)";
             $req= sprintf($sql,$utilisateur,$objectif,$this->db->escape($genre),$taille,$poids);
             $this->db->query($req);
         }
         
         function getRegime(){
-            $sql = "SELECT * FROM REGIME r JOIN OBJECTIF o ON o.idObjectif = r.idObjectif ORDER BY r.idObjectif ASC";
+            $sql = "SELECT * FROM regime r JOIN objectif o ON o.idObjectif = r.idObjectif ORDER BY r.idObjectif ASC";
             $query=$this->db->query($sql);
             $data= array();
             foreach($query->result_array() as $row){
@@ -68,7 +68,7 @@
         
         public function check_code($nomCode)
         {
-            $sql = "SELECT * FROM CODE WHERE NOMCODE = '".$nomCode."' ";
+            $sql = "SELECT * FROM code WHERE NOMCODE = '".$nomCode."' ";
 
             $query = $this->db->query($sql);
             $query_result = $query->row_array();
@@ -81,13 +81,13 @@
         public function insert_code_user($code,$idUtilisateur) 
         {
 
-            $sql = "INSERT INTO CODE_UTILISATEUR VALUES(".$code.",".$idUtilisateur.")";
+            $sql = "INSERT INTO code_utilisateur VALUES(".$code.",".$idUtilisateur.")";
             $this->db->query($sql);
         }
 
         public function search_code($nomCode)
         {
-            $sql = "SELECT IDCODE FROM CODE WHERE NOMCODE = %s";
+            $sql = "SELECT IDCODE FROM code WHERE NOMCODE = %s";
             $sprintf = sprintf($sql, $this->db->escape($nomCode));
 
             $query = $this->db->query($sprintf);
@@ -106,7 +106,7 @@
 
         public function select_code()
         {
-            $sql = "SELECT * FROM CODE";
+            $sql = "SELECT * FROM code";
 
             $query = $this->db->query($sql);
             $query_result = $query->result_array();
@@ -114,6 +114,7 @@
             return $query_result;
         }
 
+<<<<<<< Updated upstream
         public function getDetail_regime($idRegime){
             $sql= "SELECT * FROM composition_regime AS co JOIN plat p ON p.idPlat=co.idPlat JOIN objectif o ON o.idObjectif=p.idObjectif WHERE idRegime=%d";
             $query= sprintf($sql,$idRegime);
@@ -126,6 +127,12 @@
             return $tab;
 
         }
+=======
+        public function getMontantUtil($id){
+            $sql = "SELECT montantPortefeuille FROM profil WHERE idUtilisateur = %d";
+        }
+        
+>>>>>>> Stashed changes
 
     }
 ?>

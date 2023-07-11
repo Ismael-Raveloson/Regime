@@ -23,7 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function code(){
-            $this->load->view('page/back/code.php');
+            $data = array();
+            $this->load->model('FrontOfficeModel');
+            $data['code'] = $this->FrontOfficeModel->select_code();
+            $this->load->view('page/back/code.php',$data);
         }
 
 

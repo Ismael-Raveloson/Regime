@@ -9,7 +9,7 @@
 
         public function select_plat()
         {
-            $sql = "SELECT * FROM PLAT";
+            $sql = "SELECT * FROM plat";
 
             $query = $this->db->query($sql);
             $query_result = $query->result_array();
@@ -19,7 +19,7 @@
 
         public function select_objectif()
         {
-            $sql = "SELECT * FROM OBJECTIF";
+            $sql = "SELECT * FROM objectif";
 
             $query = $this->db->query($sql);
             $query_result = $query->result_array();

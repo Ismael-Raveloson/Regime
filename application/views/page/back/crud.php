@@ -160,9 +160,55 @@
                                             <p>Nom: <input type="text" name="nom" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
                                             <p>Prix: <input type="number" name="nom" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
                                             <p>Objectif: <select name="objectif" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;">
-                                                        <option value="">Perdre du poids</option>
-                                                        <option value="">...</option>
-                                                    </select></p>    
+                                                <?php
+                                                    foreach ($objectif as $list_objectif) {?>
+                                                        
+                                                        <option value=""><?php echo $list_objectif['nomObjectif'];?></option>
+                                                        
+                                                        
+                                                    <?php } ?>
+                                            </select>   
+
+                                                    <button type="submit" style="width:10vw;margin-top:20px;padding:8px 0px 8px 0px;background-color:#224abe;border:none;color:white;border-radius:6px ">Valider</button>
+                                        </form>        
+                                </div>
+                                    
+                                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4" style="width:50%;margin-left:20px">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Insertion Activité Sportive</h6>
+                        </div>
+                            <div class="card-body" style="">
+                                <div class="formulaire-plat" style="">
+                                    <form action="" method="get">
+                                        <style>
+                                            input[type="file"]::-webkit-file-upload-button {
+                                            /* CSS properties */
+                                            border:none;
+                                            border-radius:8px;
+                                            padding: 8px 10px 8px 10px;
+                                            background-color:#224abe;
+                                            color:white;
+                                            
+                                            }
+                                        </style>
+
+
+                                            <p><input type="file" name="photo" id="" style="border:1px solid grey;padding:0px 10px 0px 0px;border-radius:8px;" ></p>
+                                            <p>Nom: <input type="text" name="nom" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p> 
+                                            <p>Objectif: <select name="objectif" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;">
+                                                <?php
+                                                    foreach ($objectif as $list_objectif) {?>
+                                                        
+                                                        <option value=""><?php echo $list_objectif['nomObjectif'];?></option>
+                                                        
+                                                        
+                                                    <?php } ?>
+                                            </select>  
 
                                                     <button type="submit" style="width:10vw;margin-top:20px;padding:8px 0px 8px 0px;background-color:#224abe;border:none;color:white;border-radius:6px ">Valider</button>
                                         </form>        
