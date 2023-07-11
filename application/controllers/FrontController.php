@@ -108,7 +108,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             $data = array();
             $this->load->model('FrontOfficeModel');
-            $data['regime'] = $this->FrontOfficeModel->getRegime();
+            $id= $this->input->get("idRegime");
+            $data['regime'] = $this->FrontOfficeModel->getDetail_regime($id);
             $this->load->view('page/front/listplat',$data);
         }
 
@@ -143,7 +144,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function panier()
         {
-            $this->load->view('page/front/panier');
+            $data = array();
+            $this->load->model('FrontOfficeModel');
+            $id = $this->session->userdata('idclient');
+            $i = $id['idUtilisateur'];
+            $data['panier'] = $this->FrontOfficeModel->getListePanier($i);
+            $this->load->view('page/front/panier',$data);
         }
     }
 

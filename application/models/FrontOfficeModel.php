@@ -38,6 +38,17 @@
             return $data;
         }
 
+        function getListePanier($client){
+            $sql = "SELECT r.idRegime ,r.nomRegime , p.dateVente , r.duree , r.variation, r.prix FROM panier p JOIN regime r ON p.idRegime = r.idRegime JOIN objectif o ON r.idObjectif = o.idObjectif WHERE idUtilisateur = %s ";
+            $req = sprintf($sql,$this->db->escape($client));
+            $query= $this->db->query($req);
+            $data= array();
+            foreach($query->result_array() as $row){
+                $data[]=$row;
+            }
+            return $data;
+        }
+
         function insertProfil($utilisateur,$objectif,$genre,$taille,$poids){
             $sql="INSERT INTO PROFIL(idUtilisateur,idObjectif,genre,taille,poids,montantPortefeuille) VALUES (%d,%d,%s,%d,%d,0)";
             $req= sprintf($sql,$utilisateur,$objectif,$this->db->escape($genre),$taille,$poids);
@@ -103,7 +114,18 @@
             return $query_result;
         }
 
-        
+        public function getDetail_regime($idRegime){
+            $sql= "SELECT * FROM composition_regime AS co JOIN plat p ON p.idPlat=co.idPlat JOIN objectif o ON o.idObjectif=p.idObjectif WHERE idRegime=%d";
+            $query= sprintf($sql,$idRegime);
+            $result= $this->db->query($query);
+            $tab= array();
+
+            foreach($result->result_array() as $row){
+                $tab[]= $row;
+            }
+            return $tab;
+
+        }
 
     }
 ?>

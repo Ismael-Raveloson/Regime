@@ -37,13 +37,20 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-								<tr>
-									<th>Régime minceur</th>
-									<td>7j</td>
-									<td>10.2 %</td>
-									<td>12000 Ar</td>
-									<td><button class="detail"><a href="<?php echo base_url()?>FrontController/listplat" style="text-decoration:none;color:white;">Voir détails</a></button></td>
-								</tr>
+								
+									<?php
+									foreach ($panier as $nom) 
+									{?>
+										<tr>
+											<td><?php echo $nom['nomRegime']; ?></td>
+											<td><?php echo $nom['duree']; ?> j</td>
+											<td><?php echo $nom['variation']; ?> %</td>
+											<td><?php echo $nom['prix']; ?></td>
+
+											<td> <button class="detail"><a href="<?php echo base_url()?>FrontController/listplat?idRegime=<?php echo $nom['idRegime']; ?>" style="text-decoration:none; color:white;">Voir détails</a></button></td>
+										</tr>
+									<?php } ?>
+																	
                             
 								<style>
 									button.detail{

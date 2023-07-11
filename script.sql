@@ -197,3 +197,9 @@ UPDATE REGIME SET nomRegime= 'Regime mediteraneen' WHERE idRegime=2;
 UPDATE REGIME SET nomRegime= 'Regime sans gluten' WHERE idRegime=3;
 UPDATE REGIME SET nomRegime= 'Regime cetogene' WHERE idRegime=4;
 UPDATE REGIME SET nomRegime= 'Regime vegetarien' WHERE idRegime=5;
+
+SELECT p.nomPlat, p.photoPlat, p.prix, o.nomObjectif
+FROM composition_regime as co 
+JOIN plat p ON p.idPlat=co.idPlat
+JOIN objectif o ON o.idObjectif=p.idObjectif
+WHERE idRegime=1;
