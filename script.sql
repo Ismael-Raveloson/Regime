@@ -199,3 +199,6 @@ UPDATE regime SET nomRegime= 'Regime cetogene' WHERE idRegime=4;
 UPDATE regime SET nomRegime= 'Regime vegetarien' WHERE idRegime=5;
 
 UPDATE plat SET photoPlat = 'assets/P1.png' WHERE idPlat = 11;
+
+
+ALTER TABLE code_utilisateur ADD COLUMN idCodeUtilisateur INT PRIMARY KEY AUTO_INCREMENT;

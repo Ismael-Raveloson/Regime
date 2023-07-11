@@ -64,8 +64,11 @@
         </header>
     </div>
     
-
-	<section class="featured-places" id="blog">
+    <div class="row">
+        <button class="download" onclick="downloadPDF()">Télécharger le PDF</button>
+    </div>
+    
+	<section class="featured-places" id="section">
         <div class="container">
             <div class="row" style="">
                 <div class="col-md-12">
@@ -121,6 +124,18 @@
             </div>        
         </div>
     </section>
+
+
+    <style>
+        button.download{
+            margin:0% 50%;
+            width: 10vw;
+            background-color: green;
+            color: white;
+            padding: 10px 5px 10px 5px;
+            border: none;
+        }
+    </style>
 
 	<footer>
         <div class="container">
@@ -178,6 +193,64 @@
             </div>
         </div>
     </footer>
+        <style>
+        @media print {
+            @page {
+            size: A4 landscape; /* Set the page size to landscape */
+            margin: 0; /* Remove the default margins */
+            }
+        
+            body {
+            width: 100%; /* Set the width of the body to 100% of the page */
+            }
+        
+            /* Adjust the width of specific elements as needed */
+            #section {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            }
+        
+            .page {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            }
+        
+            /* Add more CSS rules to adjust other elements if necessary */
+        }
+        </style>
+    <script>
+    function downloadPDF(){
+        const options = {
+            margin: 0.3,
+            filename: 'facture.pdf',
+            image: { 
+                type: 'jpeg', 
+                quality: 0.98 
+            },
+            html2canvas: { 
+                scale: 2 
+            },
+            jsPDF: { 
+                unit: 'in', 
+                format: 'a4', 
+                orientation: 'portrait' 
+            }    
+        };
+
+        var objstr = document.getElementById('section').innerHTML;
+        var strr = '<html><head><title>Resultat</title>';
+        strr += '</head><body>';
+        strr += objstr;
+        strr += '</body></html>';
+
+        html2pdf().from(strr).set(options).save();
+    }
+    </script>
+
+    <script src="<?php echo base_url()?>assets/js/html2pdf.bundle.min.js"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
 	
 </body>
 </html>

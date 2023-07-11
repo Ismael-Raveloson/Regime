@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function inscription_treat() 
         {
+            $this->load->library('session');
+            
             $name = $this->input->post("name");
             $first_name = $this->input->post("first_name");
             $birthday = $this->input->post("birthday");
@@ -27,11 +29,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect('FrontController/inscription');  
             } 
             else 
-            {
-                
+            {    
                 $this->load->model('FrontOfficeModel');
                 $this->FrontOfficeModel->insert_user($name,$first_name,$birthday,$email,$password);
-                redirect('FrontController/index');  
+                $login = $this->FrontOfficeModel->cheak_user($email,$password);
+                $this->session->set_userdata('idclient',$login);
+
+                redirect('FrontController/profil');  
             }    
         }
 
@@ -101,6 +105,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data = array();
             $this->load->model('FrontOfficeModel');
             $data['code'] = $this->FrontOfficeModel->select_code();
+            $id = $this->session->userdata('idclient');
+            $i = $id['idUtilisateur'];
+            $data['vola'] = $this->FrontOfficeModel->getMontantUtil($i);
             $this->load->view('page/front/portfeuille',$data);
         }
         
@@ -150,6 +157,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $i = $id['idUtilisateur'];
             $data['panier'] = $this->FrontOfficeModel->getListePanier($i);
             $this->load->view('page/front/panier',$data);
+        }
+
+        public function ajoutPanier(){
+            $this->load->model('FrontOfficeModel');
+            $idRegime = $this->input->get('idRegime');
+            $id = $this->session->userdata('idclient');
+            $i = $id['idUtilisateur'];
+            $this->FrontOfficeModel->ajouterPanier($idRegime,$i);
+            redirect('FrontController/home');
         }
     }
 

@@ -365,7 +365,7 @@
                             <div class="down-content">
                                 <h4><?php echo $row['nomRegime'];?></h4>
                                 <span>Parfait pour: <?php echo $row['nomObjectif'];?></span>
-                                <p>Rejoignez notre programme "Équilibre Vital" dès aujourd'hui et découvrez comment une alimentation équilibrée peut transformer votre vie en vous apportant une vitalité et une clarté d'esprit accrues.</p>
+                                <p>Rejoignez notre programme dès aujourd'hui et découvrez comment une alimentation équilibrée peut transformer votre vie en vous apportant une vitalité et une clarté d'esprit accrues.</p>
                                 <div class="row">
                                     <div class="col-md-6 first-button">
                                         <div class="text-button">
@@ -374,7 +374,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="#" style="color: red;">Acheter</a>
+                                            <a href="<?php echo base_url(); ?>FrontController/ajoutPanier?idRegime=<?php echo $row['idRegime'];?>" style="color: red;">Acheter</a>
                                         </div>
                                     </div>
                                 </div>

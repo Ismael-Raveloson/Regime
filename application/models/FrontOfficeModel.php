@@ -81,7 +81,7 @@
         public function insert_code_user($code,$idUtilisateur) 
         {
 
-            $sql = "INSERT INTO code_utilisateur VALUES(".$code.",".$idUtilisateur.")";
+            $sql = "INSERT INTO code_utilisateur(idCode,idUtilisateur) VALUES(".$code.",".$idUtilisateur.")";
             $this->db->query($sql);
         }
 
@@ -107,11 +107,12 @@
         public function select_code()
         {
             $sql = "SELECT * FROM code";
-
             $query = $this->db->query($sql);
-            $query_result = $query->result_array();
-
-            return $query_result;
+            $tab = array();
+            foreach($query->result_array() as $row){
+                $tab[]= $row;
+            }
+            return $tab;
         }
 
         public function getDetail_regime($idRegime){
@@ -126,9 +127,44 @@
             return $tab;
 
         }
+
         public function getMontantUtil($id){
             $sql = "SELECT montantPortefeuille FROM profil WHERE idUtilisateur = %d";
+            $req = sprintf($sql,$id);
+            $query = $this->db->query($req);
+            $query_result = $query->row('montantPortefeuille');
+            return $query_result;
         }
+
+        public function getMontantRegime($id){
+            $sql = "SELECT prix FROM regime WHERE idRegime = %d";
+            $req = sprintf($sql,$id);
+            $query = $this->db->query($req);
+            $query_result = $query->row('prix');
+            return $query_result;
+        }
+
+        public function ajouterPanier($idRegime,$id){
+            $montant = $this->getMontantUtil($id);
+            $prixRegime = $this->getMontantRegime($idRegime);
+
+            if($montant > $prixRegime){
+                $sql = "INSERT INTO panier(idUtilisateur,idRegime,dateVente) VALUES (%d,%d,NOW())";
+                $req = sprintf($sql,$id,$idRegime);
+                $this->db->query($req);
+                // echo $montant;
+                // echo $prixRegime;
+                $newmontant = $montant - $prixRegime;
+
+                $sql2 = "UPDATE profil SET montantPortefeuille = %d WHERE idUtilisateur = %d ";
+                $req2 = sprintf($sql2,$newmontant,$id);
+                $this->db->query($req2);
+            }
+        }
+
+
+
+
         
 
     }

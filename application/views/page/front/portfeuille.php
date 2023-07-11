@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Contact Form 03</title>
+  	<title>Regime</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,6 +17,20 @@
 	</head>
 	<body>
 	
+	<div class="vola">
+		<h5>Votre portefeuille est de:
+		<?php
+			echo number_format($vola,0,',',' ') ;
+		 ?> Ar</h5>
+	</div>
+
+	<style>
+		.vola{
+			padding-top: 40px;
+			text-align:center;
+			color: blue;
+		}
+	</style>
 
 	<section class="ftco-section">
 		<div class="container">
