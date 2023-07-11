@@ -38,7 +38,7 @@
                         </div></a>
                         <nav id="primary-nav" class="dropdown cf">
                             <ul class="dropdown menu">
-                                <li class='active'><a href="#">Home</a></li>
+                                <li class='active'><a href="<?php echo base_url()?>FrontController/home">Home</a></li>
                                 <!-- <li><a href="#">Most Visited</a>
                                     <ul class="sub-menu">
                                         <li><a href="#">Most Visited 1</a>
