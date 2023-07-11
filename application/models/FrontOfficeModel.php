@@ -70,7 +70,7 @@
         public function insert_code_user($code,$idUtilisateur) 
         {
 
-            $sql = "INSERT INTO CODE_UTILISATEUR VALUES(".$code.",".$idUtilisateur.")";
+            $sql = "INSERT INTO CODE_UTILISATEUR VALUES(null,".$code.",".$idUtilisateur.")";
             $this->db->query($sql);
         }
 

@@ -75,6 +75,7 @@ CREATE TABLE CODE(
 );
 
 CREATE TABLE CODE_UTILISATEUR(
+    idcodeUtilisateur int PRIMARY key AUTO_INCREMENT,
     idCode INT,
     idUtilisateur INT,
     FOREIGN KEY (idCode) REFERENCES CODE(idCode),
@@ -190,7 +191,7 @@ INSERT INTO CODE(nomCode,montant,validite)VALUES('74MLOHJA90',500,0);
 INSERT INTO CODE(nomCode,montant,validite)VALUES('456076KE08',100,0);
 INSERT INTO CODE(nomCode,montant,validite)VALUES('260LOPR785',300,0);
 
-INSERT INTO CODE_UTILISATEUR(idCode,idUtilisateur) VALUES (1,2);
+INSERT INTO CODE_UTILISATEUR VALUES (null,1,2);
 ALTER TABLE REGIME ADD COLUMN nomRegime VARCHAR(40);
 UPDATE REGIME SET nomRegime= 'Regime minceur' WHERE idRegime=1;
 UPDATE REGIME SET nomRegime= 'Regime mediteraneen' WHERE idRegime=2;
