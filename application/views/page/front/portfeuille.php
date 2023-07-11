@@ -10,13 +10,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="<?php echo base_url('assets/portfeuille/css/style.css'); ?>">
-
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url('assets/listcode/css/style.css'); ?>">
+	
 	</head>
 	<body>
+	
 
 	<section class="ftco-section">
 		<div class="container">
-						<div class="row no-gutters">
+						<div class="row no-gutters" >
 							<div class="col-md-7">
 								<div class="contact-wrap w-100 p-md-5 p-4">
 									<h3 class="mb-4">Inserer Code    </h3>
@@ -44,19 +48,20 @@
 
                                     <div class="col-md-12">
 												<div class="form-group">
-                                                    <form action="<?php echo base_url('FrontController/listcode'); ?>">
+                                                    <!-- <form action="<?php echo base_url('FrontController/listcode'); ?>">
                                                         <input type="submit" value="Voir la liste des codes" class="btn btn-primary">
-                                                    </form>
+                                                    </form> -->
 													<div class="submitting"></div>
 												</div>
 									</div>
 
                                             <div class="col-md-12">
 												<div class="form-group">
-                                                    <form action="<?php echo base_url('FrontController/home'); ?>">
+                                                    <!-- <form action="<?php echo base_url('FrontController/home'); ?>">
                                                         <input type="submit" value="Retour" class="btn btn-primary">
-                                                    </form>
-													<div class="submitting"></div>
+                                                    </form> -->
+													<a href="<?php echo base_url()?>FrontController/home" style="font-size:13px;">Retour</a>
+													<!-- <div class="submitting"></div> -->
 												</div>
 											</div>
 
@@ -68,7 +73,7 @@
 									
 								</div>
 							</div>
-							<div class="col-md-5 d-flex align-items-stretch">
+							<div class="col-md-5 d-flex align-items-stretch" >
 								<div class="info-wrap w-100 p-5 img" style="background-image: url(<?php echo base_url('assets/portfeuille/images/img.jpg'); ?>);">
 			          </div>
 							</div>
@@ -78,6 +83,48 @@
 			</div>
 		</div>
 	</section>
+	<section class="ftco-section" style="margin-top:-150px">
+		<div class="container">
+			<div class="row">
+						<div class="col-md-12">
+							<div class="table-wrap">
+								<table class="table">
+								<thead class="thead-dark">
+									<tr>
+									<th>ID Code</th>
+									<th>Code</th>
+									<th>Montant</th>
+									<th>Validité</th>
+									<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										foreach ($code as $codelist) 
+										{?>
+											
+											<tr class="alert" role="alert">
+												<th scope="row"><?php echo $codelist['idCode'];?></th>
+												<td><?php echo $codelist['nomCode'];?></td>
+												<td><?php echo $codelist['montant'];?> AR</td>
+												<td><?php echo $codelist['validite'];?></td>
+												<td>
+													
+												</a>
+												</td>
+											</tr>
+
+										<?php }?>
+								
+									
+								</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+			</div>
+		</section>
+
 
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>

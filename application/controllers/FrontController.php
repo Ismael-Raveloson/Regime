@@ -90,15 +90,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function portfeuille()
         {
-            $this->load->view('page/front/portfeuille');
-        }
-        
-        public function listcode()
-        {
             $data = array();
             $this->load->model('FrontOfficeModel');
             $data['code'] = $this->FrontOfficeModel->select_code();
-            $this->load->view('page/front/listcode',$data);
+            $this->load->view('page/front/portfeuille',$data);
+        }
+        
+        public function listplat()
+        {
+            $data = array();
+            $this->load->model('FrontOfficeModel');
+            $data['regime'] = $this->FrontOfficeModel->getRegime();
+            $this->load->view('page/front/listplat',$data);
         }
 
         public function listcode_treat()

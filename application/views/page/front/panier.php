@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Liste des code</title>
+  	<title>Regime</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Liste des code</h2>
+					<h2 class="heading-section">Liste des régimes achetées</h2>
 				</div>
 
                 
@@ -29,30 +29,30 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
-						      <th>ID Code</th>
-						      <th>Code</th>
+						      <th>Nom Régime</th>
+						      <th>Durée</th>
+						      <th>Variation</th>
 						      <th>Montant</th>
-						      <th>Validité</th>
 						      <th>&nbsp;</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-                          
-                                    
-                                    <tr class="alert" role="alert">
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td> AR</td>
-                                        <td></td>
-                                        <td>
-                                            
-                                        </a>
-                                        </td>
-                                    </tr>
-
-                               
-						   
-						    
+								<tr>
+									<th>Régime minceur</th>
+									<td>7j</td>
+									<td>10.2 %</td>
+									<td>12000 Ar</td>
+									<td><button class="detail"><a href="<?php echo base_url()?>FrontController/listplat" style="text-decoration:none;color:white;">Voir détails</a></button></td>
+								</tr>
+                            
+								<style>
+									button.detail{
+										background-color:#224abe;
+										padding: 7px 10px 7px 10px;
+										border:none;
+										border-radius:5px;
+									}
+								</style>						    
 						  </tbody>
 						</table>
 					</div>
