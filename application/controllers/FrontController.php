@@ -49,16 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $login = $this->FrontOfficeModel->cheak_user($email,$password);
 
+            var_dump($login['estAdmin']);
             if (is_null($login)) 
             {
                 redirect('FrontController/index');
             }
-            
             else 
             {
                 $this->session->set_userdata('idclient',$login);
                 
-                redirect('FrontController/home');
+                if ($login['estAdmin'] == 1) 
+                {
+                    redirect('BackController/index');
+                }
+                else 
+                {
+                    redirect('FrontController/home');
+                }
+                
             }
         }
 
@@ -114,6 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $selectcode = $this->FrontOfficeModel->check_code($code);
 
             $idcode = $selectcode['idCode'];
+            
             
             if (is_null($selectcode)) 
             {

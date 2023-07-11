@@ -91,11 +91,10 @@
 								<table class="table">
 								<thead class="thead-dark">
 									<tr>
-									<th>ID Code</th>
+					
 									<th>Code</th>
 									<th>Montant</th>
-									<th>Validité</th>
-									<th>&nbsp;</th>
+		
 									</tr>
 								</thead>
 								<tbody>
@@ -104,14 +103,14 @@
 										{?>
 											
 											<tr class="alert" role="alert">
-												<th scope="row"><?php echo $codelist['idCode'];?></th>
+												
 												<td><?php echo $codelist['nomCode'];?></td>
 												<td><?php echo $codelist['montant'];?> AR</td>
-												<td><?php echo $codelist['validite'];?></td>
-												<td>
+												
+												
 													
-												</a>
-												</td>
+												
+												
 											</tr>
 
 										<?php }?>
