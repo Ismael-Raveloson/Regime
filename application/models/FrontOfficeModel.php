@@ -114,9 +114,8 @@
             return $query_result;
         }
 
-<<<<<<< Updated upstream
         public function getDetail_regime($idRegime){
-            $sql= "SELECT * FROM composition_regime AS co JOIN plat p ON p.idPlat=co.idPlat JOIN objectif o ON o.idObjectif=p.idObjectif WHERE idRegime=%d";
+            $sql= "SELECT p.nomPlat,p.photoPlat,p.prix,o.nomObjectif FROM composition_regime AS co JOIN plat p ON p.idPlat=co.idPlat JOIN objectif o ON o.idObjectif=p.idObjectif WHERE idRegime=%d";
             $query= sprintf($sql,$idRegime);
             $result= $this->db->query($query);
             $tab= array();
@@ -127,12 +126,10 @@
             return $tab;
 
         }
-=======
         public function getMontantUtil($id){
             $sql = "SELECT montantPortefeuille FROM profil WHERE idUtilisateur = %d";
         }
         
->>>>>>> Stashed changes
 
     }
 ?>

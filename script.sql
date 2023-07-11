@@ -190,21 +190,6 @@ INSERT INTO code(nomCode,montant,validite)VALUES('74MLOHJA90',500,0);
 INSERT INTO code(nomCode,montant,validite)VALUES('456076KE08',100,0);
 INSERT INTO code(nomCode,montant,validite)VALUES('260LOPR785',300,0);
 
-<<<<<<< Updated upstream
-INSERT INTO CODE_UTILISATEUR(idCode,idUtilisateur) VALUES (1,2);
-ALTER TABLE REGIME ADD COLUMN nomRegime VARCHAR(40);
-UPDATE REGIME SET nomRegime= 'Regime minceur' WHERE idRegime=1;
-UPDATE REGIME SET nomRegime= 'Regime mediteraneen' WHERE idRegime=2;
-UPDATE REGIME SET nomRegime= 'Regime sans gluten' WHERE idRegime=3;
-UPDATE REGIME SET nomRegime= 'Regime cetogene' WHERE idRegime=4;
-UPDATE REGIME SET nomRegime= 'Regime vegetarien' WHERE idRegime=5;
-
-SELECT p.nomPlat, p.photoPlat, p.prix, o.nomObjectif
-FROM composition_regime as co 
-JOIN plat p ON p.idPlat=co.idPlat
-JOIN objectif o ON o.idObjectif=p.idObjectif
-WHERE idRegime=1;
-=======
 INSERT INTO code_utilisateur(idCode,idUtilisateur) VALUES (1,2);
 ALTER TABLE regime ADD COLUMN nomRegime VARCHAR(40);
 UPDATE regime SET nomRegime= 'Regime minceur' WHERE idRegime=1;
@@ -212,4 +197,5 @@ UPDATE regime SET nomRegime= 'Regime mediteraneen' WHERE idRegime=2;
 UPDATE regime SET nomRegime= 'Regime sans gluten' WHERE idRegime=3;
 UPDATE regime SET nomRegime= 'Regime cetogene' WHERE idRegime=4;
 UPDATE regime SET nomRegime= 'Regime vegetarien' WHERE idRegime=5;
->>>>>>> Stashed changes
+
+UPDATE plat SET photoPlat = 'assets/P1.png' WHERE idPlat = 11;

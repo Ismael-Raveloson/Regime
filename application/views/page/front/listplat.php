@@ -81,8 +81,8 @@
                     <div class="col-md-4 col-sm-6 col-xs-12" style="margin-top:30px">
                         <div class="featured-item">
                             <div class="thumb">
-                                <img src="<?php echo base_url()?>assets/template/img/featured_item_1.jpg" alt="">
-                                <div class="overlay-content">
+                                <img src="<?php echo base_url()?><?php echo $row['photoPlat'];?>" alt="">
+                                <!-- <div class="overlay-content">
                                     <ul>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -90,21 +90,19 @@
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                     </ul>
-                                </div>
+                                </div> -->
                                 <div class="date-content">
                                     <h6><?php echo number_format($row['prix'],0,',',' '); ?></h6>
                                     <span>Ar</span>
                                 </div>
-                                <div class="price-content" style="background-color: rgb(0, 188, 69); float: right; padding: 12px 10px 12px 10px; border-radius: 50%; color: white;margin-right: 4%;margin-top: 5px; font-family:arial; font-size:15px; text-align:center; ">
-                                    <h6 style="height:2vh; width:2.5vw"><?php echo $row['variation'];?> %</h6>
-                                </div>
+                                
                             </div>
                             <div class="down-content">
-                                <h4><?php echo $row['nomRegime'];?></h4>
+                                <h4><?php echo $row['nomPlat'];?></h4>
                                 <span>Parfait pour: <?php echo $row['nomObjectif'];?></span>
                                 <p>Rejoignez notre programme "Équilibre Vital" dès aujourd'hui et découvrez comment une alimentation équilibrée peut transformer votre vie en vous apportant une vitalité et une clarté d'esprit accrues.</p>
                                 <div class="row">
-                                    <div class="col-md-6 first-button">
+                                    <!-- <div class="col-md-6 first-button">
                                         <div class="text-button">
                                             <a style="font-size: 14px;"><?php echo $row['duree']; ?> JOURS</a>
                                         </div> 
@@ -113,7 +111,7 @@
                                         <div class="text-button">
                                             <a href="#" style="color: red;">Acheter</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
