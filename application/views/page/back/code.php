@@ -20,6 +20,16 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url()?>assets/backoffice/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="<?php echo base_url('assets/portfeuille/css/style.css'); ?>">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    <link rel="stylesheet" href="<?php echo base_url('assets/listcode/css/style.css'); ?>">
+    
 </head>
 
 <body id="page-top">
@@ -31,7 +41,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('BackController');?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cart-arrow-down"></i>
                 </div>
@@ -88,7 +98,55 @@
 
                 <div class="container-fluid">
 
-                    
+                    <section class="ftco-section" style="margin-top:-150px">
+                        <div class="container">
+                            <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-wrap">
+                                                <table class="table">
+                                                <thead class="thead-dark">
+                                                                                        
+                                                    <th>Code</th>
+                                                    <th>Montant</th>
+                                                    <th>Prenom</th>
+                                                    <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($code as $code_list) 
+                                                    {?>
+                                                        <tr>
+
+                                                            <td><?php echo $code_list['nomcode'];?></td> 
+                                                            <td><?php echo $code_list['montant'];?></td> 
+                                                            <td><?php echo $code_list['prenom'];?></td> 
+                                                            <td><button class="detail"><a href="#" style="text-decoration:none;color:white;">Supprimer</a></button></td>                                                                
+                                                        </tr>    
+                                                    <?php } ?>
+                                                    <style>
+                                                            button.detail{
+                                                            background-color:#224abe;
+                                                            padding: 7px 10px 7px 10px;
+                                                            border:none;
+                                                            border-radius:5px;
+									                        }
+								                    </style>
+                                                    
+                                                </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </section>
+
+
+                    <script src="js/jquery.min.js"></script>
+                <script src="js/popper.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/jquery.validate.min.js"></script>
+                <script src="js/main.js"></script>
+                      
 
                 </div>
 

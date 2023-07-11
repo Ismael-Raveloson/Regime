@@ -74,7 +74,8 @@ CREATE TABLE code(
     validite INT
 );
 
-CREATE TABLE code_utilisateur(
+CREATE TABLE CODE_UTILISATEUR(
+    idcodeUtilisateur int PRIMARY key AUTO_INCREMENT,
     idCode INT,
     idUtilisateur INT,
     FOREIGN KEY (idCode) REFERENCES CODE(idCode),

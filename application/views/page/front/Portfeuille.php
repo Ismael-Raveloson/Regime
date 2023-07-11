@@ -120,11 +120,7 @@
 												
 												<td><?php echo $codelist['nomCode'];?></td>
 												<td><?php echo $codelist['montant'];?> AR</td>
-												
-												
 													
-												
-												
 											</tr>
 
 										<?php }?>

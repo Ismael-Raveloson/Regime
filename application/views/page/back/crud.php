@@ -95,7 +95,7 @@
                             <div class="card-body">
                                 <div class="card-body-form" style="">
                                     <div class="form">
-                                    <form action="" method="get" style="display:grid;grid-template-columns: 50% 50%;">
+                                    <form action="<?php echo base_url('BackController/regime_treat');?>" style="display:grid;grid-template-columns: 50% 50%;"  method="post">
                                         <div class="formulaire">
                                             <p>Nom: <input type="text" name="nom" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
                                             <p>Durée: <input type="number" name="duree" id="" style="padding:5px 10px 5px 10px;border-radius:8px;border:1px solid grey;"></p>
@@ -105,7 +105,7 @@
                                                 <?php
                                                     foreach ($objectif as $list_objectif) {?>
                                                         
-                                                        <option value=""><?php echo $list_objectif['nomObjectif'];?></option>
+                                                        <option value="<?php echo $list_objectif['idObjectif'];?>"><?php echo $list_objectif['nomObjectif'];?></option>
                                                         
                                                         
                                                     <?php } ?>
@@ -119,9 +119,11 @@
                                             foreach ($plat as  $list_plat) 
                                             {?>
 
-                                                    <span> <input type="checkbox" name="plat" id="" value="p1">  <?php echo $list_plat['nomPlat'];?> </span>
+                                                <span> 
+                                                    <input type="checkbox" name="plat[]" id="" value="<?php echo $list_plat['idPlat'];?>">  <?php echo $list_plat['nomPlat'];?> 
+                                                </span>
                                                 
-                                            <?php } ?>
+                                        <?php } ?>
 
                                         </div>
 
@@ -142,7 +144,7 @@
                         </div>
                             <div class="card-body" style="">
                                 <div class="formulaire-plat" style="">
-                                    <form action="" method="get">
+                                    <form action="<?php echo base_url('BackController/plat_treat'); ?>" method="post">
                                         <style>
                                             input[type="file"]::-webkit-file-upload-button {
                                             /* CSS properties */
