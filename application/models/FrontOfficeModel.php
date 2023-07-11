@@ -55,9 +55,6 @@
         }
 
         
-
-        
-        
         public function check_code($nomCode)
         {
             $sql = "SELECT * FROM CODE WHERE NOMCODE = %s ";
@@ -65,31 +62,31 @@
             $sprintf = sprintf($sql , $this->db->escape($nomCode));
 
             $query = $this->db->query($sprintf);
-            $query_result = $query->row_array();
+
+            $num = $query->num_rows();
+            $answer = false;
+
+            if ($num >=1) 
+            {
+                $answer = true;
+            }
             
-            return $query_result;
-            
+            return $answer;
         }
 
-        public function insert_code_user($code,$utilisateur)
+
+        public function insert_code_user($code,$idUtilisateur) 
         {
-            $sql = "INSERT INTO CODE_UTILISATEUR VALUES(".$code.",".$utilisateur.")";
+            if ($this->check_code($code) == true) 
+            {
+                $sql = "INSERT INTO CODE_UTILISATEUR VALUES(%d,%d)";
 
-            $query = $this->db->query($sql);
-        }
-
-        // public function insert_code_user($code,$idUtilisateur) 
-        // {
-        //     if ($this->check_code($code) == true) 
-        //     {
-        //         $sql = "INSERT INTO CODE_UTILISATEUR VALUES(%d,%d)";
-
-        //         $sprintf = sprintf($sql,$code,$idUtilisateur);
+                $sprintf = sprintf($sql,$code,$idUtilisateur);
                 
-        //         $this->db->query($sprintf);    
-        //     }
+                $this->db->query($sprintf);    
+            }
             
-        // }
+        }
 
         public function search_code($nomCode)
         {
