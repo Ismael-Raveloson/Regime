@@ -17,10 +17,7 @@
             return $query_result;
         }
 
-        // public insert_plat()
-        // {
 
-        // }
         
     }
 ?>

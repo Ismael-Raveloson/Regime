@@ -66,9 +66,9 @@
                                     </ul>
                                 </li> -->
                                 <!-- <li><a class="scrollTo" data-scrollTo="blog" href="#">Profil</a></li> -->
-                                <li><a class="scrollTo" data-scrollTo="services" href="#">Portefeuille</a></li>
-                                <li><a class="scrollTo" data-scrollTo="services" href="#">Panier</a></li>
-                                <li><a class="scrollTo" data-scrollTo="contact" href="#">Log out</a></li>
+                                <li><a class="scrollTo" data-scrollTo="services" href="<?php echo base_url('FrontController/portfeuille'); ?>">Portefeuille</a></li>
+                                <li><a class="scrollTo" data-scrollTo="services" href="<?php echo base_url('FrontController/panier'); ?>">Panier</a></li>
+                                <li><a class="scrollTo" data-scrollTo="contact" href="<?php echo base_url('FrontController/log_out'); ?>">Log out</a></li>
                             </ul>
                         </nav><!-- / #primary-nav -->
                     </div>
